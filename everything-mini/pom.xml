@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.every</groupId>
+    <artifactId>everything-mini</artifactId>
+    <version>1.0.0</version>
+
+    <!--打包格式jar-->
+    <packaging>jar</packaging>
+
+    <!--项目名称-->
+    <name>everything-mini</name>
+
+    <!--项目描述-->
+    <description>基于Java语言开发的命令行文件搜索工具</description>
+
+    <!--开发者信息-->
+    <developers>
+        <developer>
+            <id>007</id>
+            <email>13720619020@163.com</email>
+        </developer>
+    </developers>
+
+    <!--属性信息-->
+    <properties>
+        <encording>UTF-8</encording>
+        <java.version>1.8</java.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <!--项目依赖-->
+    <dependencies>
+
+        <!--lombok插件运行依赖的库-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--H2数据库以及驱动（JDBC API）-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+    <!--配置构建的信息-->
+    <build>
+        <plugins>
+            <!--编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+            <!--打包插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!--配置主类-->
+                            <mainClass>com.every.everything.cmd.EverythingMiniCmdApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

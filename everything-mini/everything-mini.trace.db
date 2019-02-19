@@ -1,0 +1,55 @@
+2019-02-15 20:56:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "fileType" not found [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3148)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3247)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:310)
+	at com.alibaba.druid.pool.DruidPooledResultSet.getString(DruidPooledResultSet.java:257)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.search(FileIndexDaoImpl.java:87)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.main(FileIndexDaoImpl.java:129)
+2019-02-15 21:03:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "fileType" not found [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3148)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3247)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:310)
+	at com.alibaba.druid.pool.DruidPooledResultSet.getString(DruidPooledResultSet.java:257)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.search(FileIndexDaoImpl.java:87)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.main(FileIndexDaoImpl.java:129)
+2019-02-15 21:06:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "fileType" not found [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3148)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3247)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:310)
+	at com.alibaba.druid.pool.DruidPooledResultSet.getString(DruidPooledResultSet.java:257)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.search(FileIndexDaoImpl.java:87)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.main(FileIndexDaoImpl.java:129)
+2019-02-15 21:08:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "fileType" not found [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3148)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3247)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:310)
+	at com.alibaba.druid.pool.DruidPooledResultSet.getString(DruidPooledResultSet.java:257)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.search(FileIndexDaoImpl.java:87)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.main(FileIndexDaoImpl.java:129)
+2019-02-15 21:09:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "fileType" not found [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3148)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3247)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:310)
+	at com.alibaba.druid.pool.DruidPooledResultSet.getString(DruidPooledResultSet.java:257)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.search(FileIndexDaoImpl.java:87)
+	at com.every.everything.core.dao.impl.FileIndexDaoImpl.main(FileIndexDaoImpl.java:129)

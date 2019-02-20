@@ -4,14 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xpu.maven</groupId>
-    <artifactId>Everything-java-3</artifactId>
+    <groupId>com.xpu</groupId>
+    <artifactId>everything_mini</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!-- 打包方式 -->
+    <!-- 打包格式 jar -->
     <packaging>jar</packaging>
 
-    <!-- 编译目标 -->
+    <!--项目描述-->
+    <description>这是一个Java版everything小工具</description>
+
+    <!-- 属性信息 -->
     <properties>
         <encoding>UTF-8</encoding>
         <java.version>1.8</java.version>
@@ -21,12 +24,6 @@
 
     <!--项目依赖-->
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
         <!--Lombok插件运行依赖的库-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -55,7 +52,6 @@
         </dependency>
 
     </dependencies>
-
     <!-- 构建信息 -->
     <build>
 
@@ -64,31 +60,48 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.6.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
                 </configuration>
             </plugin>
-
-            <!-- 打包插件 -->
+            <!--依赖管理插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.build.directory}/lib
+                            </outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--打包插件-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
+                <version>3.1.0</version>
                 <configuration>
                     <archive>
                         <manifest>
-                            <!-- 配置主类 -->
-                            <addClassPath>true</addClassPath>
+                            <!--配置主类-->
+                            <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
-                            <mainClass> </mainClass>
+                            <mainClass></mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
-
 </project>

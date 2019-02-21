@@ -11,8 +11,11 @@
     <!-- 打包格式 jar -->
     <packaging>jar</packaging>
 
+    <!--项目名称-->
+    <name>everyyhing_mini</name>
+
     <!--项目描述-->
-    <description>这是一个Java版everything小工具</description>
+    <description>这是一个Java版的everything小工具</description>
 
     <!-- 属性信息 -->
     <properties>
@@ -90,14 +93,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.1.1</version>
                 <configuration>
                     <archive>
                         <manifest>
                             <!--配置主类-->
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
-                            <mainClass></mainClass>
+                            <mainClass>everything.cmd.EverythingMiniCmdApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -21,6 +21,27 @@ public class FileIndexDaoImpl implements FileIndexDao {
     }
 
     @Override
+    public void delete(Thing thing) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            //获取数据库连接
+            connection = dataSource.getConnection();
+            //准备SQL语句
+            String sql = "delete from file_index where path like '" + thing.getPath() + "%'";
+            //准备命令
+            statement = connection.prepareStatement(sql);
+            //设置参数1 2 3 4
+            //执行命令
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            releaseResource(null, statement, connection);
+        }
+    }
+
+    @Override
     public void insert(Thing thing) {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -48,7 +69,6 @@ public class FileIndexDaoImpl implements FileIndexDao {
     @Override
     public List<Thing> search(Condition condition) {
         List<Thing> things = new ArrayList<>();
-        //TODO
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -64,16 +84,22 @@ public class FileIndexDaoImpl implements FileIndexDao {
             //name匹配原则：前模糊、后模糊、前后模糊，此处选择前后模糊
             sqlBuilder.append(" where ").append("name like '%").append(condition.getName()).append("%' ");
             if(condition.getFileType() != null){
+                System.out.println(condition);
+                System.out.println(condition.getFileType());
                 sqlBuilder.append(" and file_type = '").append(condition.getFileType().toUpperCase()).append("'");
             }
             //limit,order by必选的
-            sqlBuilder.append(" order by depth ").append(condition.getOrderByAsc() ? "asc" : "desc");
-            sqlBuilder.append("limit ").append(condition.getLimit()).append("offset 0 ");
+            if(condition.getOrderByAsc() != null)
+                sqlBuilder.append(" order by depth ").append(condition.getOrderByAsc() ? "asc" : "desc");
+            if(condition.getLimit() != null)
+                sqlBuilder.append("limit ").append(condition.getLimit()).append("offset 0 ");
             //准备命令
             statement = connection.prepareStatement(sqlBuilder.toString());
+            System.out.println(sqlBuilder);
             //执行命令
             resultSet = statement.executeQuery();
             //处理结果
+            System.out.println(resultSet.next());
             while(resultSet.next()){
                 //数据库中的行记录变成Java中的对象Thing
                 Thing thing = new Thing();
@@ -83,13 +109,14 @@ public class FileIndexDaoImpl implements FileIndexDao {
                 String fileType = resultSet.getString("file_type");
                 thing.setFileType(FileType.looByName(fileType));
                 things.add(thing);
+                //System.out.println(thing);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             releaseResource(resultSet, statement, connection);
         }
-        return null;
+        return things;
     }
 
     //解决内部大量代码重复问题：重构

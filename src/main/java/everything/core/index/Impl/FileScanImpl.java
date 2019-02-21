@@ -5,9 +5,7 @@ import everything.core.index.FileScan;
 import everything.core.interceptor.FileInterceptor;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class FileScanImpl implements FileScan {
     private EverythingMiniConfig config = EverythingMiniConfig.getInstance();
@@ -16,12 +14,10 @@ public class FileScanImpl implements FileScan {
     @Override
     public void index(String path) {
         File file = new File(path);
-        List<File> fileList = new ArrayList<>();
+        //List<File> fileList = new ArrayList<>();
         if (file.isFile()) {
             if (config.getExcludePath().contains(file.getParent())) {
                 return;
-            } else {
-                fileList.add(file);
             }
         } else {
             if (config.getExcludePath().contains(path)) {

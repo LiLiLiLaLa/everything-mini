@@ -18,6 +18,9 @@ public class EverythingMiniCmdApp{
         //统一调度器
         EverythingMiniManager manager = EverythingMiniManager.getInstance();
 
+        //启用后台清理线程
+        manager.startBackgroundCleanThread();
+
         //交互式
         interactive(manager);
     }
@@ -38,7 +41,7 @@ public class EverythingMiniCmdApp{
                     Condition condition = new Condition();
                     String name = values[1];
                     condition.setName(name);
-                    if (values[1].length() >= 3) {
+                    if (values.length >= 3) {
                         String fileType = values[2];
                         condition.setFileType(fileType.toUpperCase());
                     }
@@ -67,11 +70,15 @@ public class EverythingMiniCmdApp{
 
 
     private static void search(EverythingMiniManager manager, Condition condition) {
-        System.out.println("检索功能");
-        manager.search(condition);
         List<Thing> thingList = manager.search(condition);
-        for(Thing thing : thingList){
-            System.out.println(thing.getPath());
+        //TODO mkonk
+        System.out.println(thingList);
+        if(thingList != null) {
+
+
+            for (Thing thing : thingList) {
+                System.out.println(thing);
+            }
         }
     }
 
@@ -82,7 +89,7 @@ public class EverythingMiniCmdApp{
     }
 
     private static void welcome() {
-        System.out.println("welcome to use,IntelligentEverything");
+        System.out.println("welcome to use,everything-mini");
     }
 
     private static void help() {
@@ -90,7 +97,6 @@ public class EverythingMiniCmdApp{
         System.out.println("退出: quit");
         System.out.println("帮助: help");
         System.out.println("索引: index");
-        System.out.println("历史指令: history");
         System.out.println("搜索: search <name> [<file-Type> img | doc | bin | archieve | other]");
         System.out.println("搜索文件特殊格式: search <\"name contain spacing \"> [<file-Type> img | doc | bin | archieve | other]");
     }

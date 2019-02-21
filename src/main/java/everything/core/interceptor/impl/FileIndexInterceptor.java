@@ -17,7 +17,8 @@ public class FileIndexInterceptor implements FileInterceptor {
     @Override
     public void apply(File file) {
         Thing thing = FileCovertThing.covert(file);
-        System.out.println("Thing==>" + thing);
+        //TODO nnn
+        System.out.println(file);
         fileIndexDao.insert(thing);
     }
 }

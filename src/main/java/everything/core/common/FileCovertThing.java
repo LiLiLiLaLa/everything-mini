@@ -8,7 +8,7 @@ import java.io.File;
 /**
  * 辅助工具类，将FILE对象转换为Thing对象
  */
-public class FileCovertThing {
+public final class FileCovertThing {
     private FileCovertThing(){}
 
     public static Thing covert(File file){
@@ -21,9 +21,8 @@ public class FileCovertThing {
     }
 
     private static int computerFileDepth(File file){
-        int dept = 0;
-        String[] segent = file.getAbsolutePath().split("\\\\");
-        return segent.length;
+        String[] segment = file.getAbsolutePath().split("\\\\");
+        return segment.length;
     }
 
     private static FileType computerFileType(File file){

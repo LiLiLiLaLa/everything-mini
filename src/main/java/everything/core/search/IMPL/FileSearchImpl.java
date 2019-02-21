@@ -23,6 +23,8 @@ public class FileSearchImpl implements FileSearch {
         if(condition == null){
             return new ArrayList<Thing>();
         }
+        //TODO nnn
+        System.out.println(condition);
         return this.fileIndexDao.search(condition);
     }
 
